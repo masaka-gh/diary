@@ -1,0 +1,25 @@
+{% extends 'diary/base.html' %}
+
+{% block content %}
+<center><h1> MY DAIRY</h1></center>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>TITLES</th>
+            <th>DATE</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for day in day_list %}
+        <tr>
+            <td><a href="{% url 'diary:detail' day.pk %}">{{ day.title }}</a></td>
+            <td>{{ day.date }}</td>
+            <td><a href="{% url 'diary:update' day.pk %}">UPDATE</a></td>
+            <td><a href="{% url 'diary:delete' day.pk %}">DELETE</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'diary/base.html' %}
+
+{% block content %}
+
+<div class="alert alert-warning" role="alert">
+    <strong>WARNING!</strong>deleted dairy cannot be recovered.
+</div>
+
+<form action="" method="POST">
+    <table class="table">
+        <tr>
+            <th>DATE</th>
+            <td>{{ day.date }}</td>
+        </tr>
+        <tr>
+            <th>TITLE</th>
+            <td>{{ day.title }}</td>
+        </tr>
+        <tr>
+            <th>CONTENT</th>
+            <td>{{ day.text }}</td>
+        </tr>
+    </table>
+    <button type="submit" class="btn btn-primary">DELETE</button>
+    {% csrf_token %}
+</form>
+{% endblock %}
